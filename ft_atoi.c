@@ -6,7 +6,7 @@
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 20:35:05 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/02/07 20:37:22 by jmore-oj         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:42:40 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,37 @@
 
 int	ft_atoi(const char *str)
 {
+	int	i;
 	int	result;
-	int	sing;
+	int	sign;
 
+	i = 0;
 	result = 0;
-	sing = 1;
-	while ((*str == ' ') && (*str >= 9 && *str <= 13))
+	sign = 1;
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
 	{
-		str++;
+		i++;
 	}
-	if (*str == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		sing = -1;
-		str++;
+		if (str[i] == '-' && sign == 1)
+			sign *= -1;
+		i++;
 	}
-	else if (*str == '+')
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		str++;
+		result = result * 10 + (str[i] - 48);
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (sing * result);
+	return (sign * result);
 }
+/*
 int	main()
 {
 	char	*ptr;
 
-	ptr = "  \n   +45+645dfg";
-	printf ("atoi es: %d\n", ft_atoi(ptr));
+	ptr = "  \f -445dfg";
+	printf ("atoi tuyo es: %d\n", ft_atoi(ptr));
+	printf ("atoi real es: %d\n", atoi(ptr));
 	return (0);
-}
+}*/
