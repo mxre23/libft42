@@ -6,7 +6,7 @@
 /*   By: jmore-oj <jmore-oj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:57 by jmore-oj          #+#    #+#             */
-/*   Updated: 2024/02/23 19:52:38 by jmore-oj         ###   ########.fr       */
+/*   Updated: 2024/03/02 22:12:48 by jmore-oj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdio.h>
-# include <ctype.h>
 # include <stdlib.h>
-# include <string.h>
-# include <xlocale.h>
 # include <unistd.h>
 
 int		ft_isalpha(int c);
@@ -40,6 +36,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -55,5 +53,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
